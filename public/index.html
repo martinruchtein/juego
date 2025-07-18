@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego Impostor</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 40px; }
+    #role { font-size: 2rem; margin-top: 20px; }
+    input, button { font-size: 1.2rem; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Juego Impostor</h1>
+
+  <div id="nameInput">
+    <input type="text" id="playerName" placeholder="Tu nombre" />
+    <br />
+    <button onclick="createRoom()">Crear sala</button>
+    <button onclick="showJoin()">Unirse a sala</button>
+  </div>
+
+  <div id="joinSection" style="display:none;">
+    <input type="text" id="roomCodeInput" placeholder="Código de sala" maxlength="4" />
+    <br />
+    <button onclick="joinRoom()">Entrar</button>
+  </div>
+
+  <div id="gameSection" style="display:none;">
+    <h2>Sala: <span id="roomCodeDisplay"></span></h2>
+    <p>Jugadores:</p>
+    <ul id="playerList"></ul>
+    <button id="startBtn" onclick="startRound()">Iniciar ronda</button>
+    <div id="role"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
